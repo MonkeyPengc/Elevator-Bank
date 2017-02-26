@@ -109,10 +109,11 @@ class Elevator(threading.Thread):
         else:
             for i in range(len(self.requests)):
                 if self.requests[i] == level:
-                    return
+                    break
 
                 elif self.requests[i] > level:
                     self.requests.insert(i, level)
+                    break
 
         self.lock.release()
 
